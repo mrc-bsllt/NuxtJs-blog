@@ -1,5 +1,5 @@
 <template>
-    <div class="featured_posts">
+    <div class="featured_posts flex flex-row justify-start flex-wrap py-10">
         <Posts-PostCard 
             v-for="post in posts"
             :key="post.id"
@@ -18,12 +18,5 @@ export default {
 </script>
 
 <style scoped>
-    .featured_posts {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 20px 0;
-    }
+
 </style>

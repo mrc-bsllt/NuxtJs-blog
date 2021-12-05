@@ -2,13 +2,15 @@
     <footer id="footer"></footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '@/assets/style/partials/_vars.scss';
+
     #footer {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 80px;
+        height:$footerHeight;
         background-color: #ccc;
     }
 </style>

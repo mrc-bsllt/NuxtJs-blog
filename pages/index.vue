@@ -1,8 +1,6 @@
 <template>
     <div id="home">
-        <header>
-            <h1>Featured Posts!</h1>
-        </header>
+        <PageTitle message="Featured Posts!"/>
 
         <main>
             <Posts-PostList :posts="getLoadedPosts" />

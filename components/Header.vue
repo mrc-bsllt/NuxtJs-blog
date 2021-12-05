@@ -10,7 +10,9 @@
     </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '@/assets/style/partials/_vars.scss';
+
     #header {
         display: flex;
         flex-direction: row;
@@ -18,7 +20,7 @@
         align-items: stretch;
         flex-wrap: nowrap;
         width: 100%;
-        height: 80px;
+        height: $headerHeight;
         padding: 10px 15px;
         background-color: #ccc;
         color: #000;

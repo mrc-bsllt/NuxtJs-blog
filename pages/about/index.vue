@@ -1,5 +1,7 @@
 <template>
-    <h1>About page</h1>
+    <div id="about_page">
+        <PageTitle message="About Page!"/>
+    </div>
 </template>
 
 <script>

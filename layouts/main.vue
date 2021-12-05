@@ -21,17 +21,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '@/assets/style/partials/_vars.scss';
+
     #main_layout {
         position: relative;
-        height: 100vh;
-        max-height: 100vh;
-        background-color: #303030;
-        color: #fff;
-        font-family: 'Roboto', sans-serif;
-    }
+        background-color: $primary_bg;
+        color: $secondary_color;
 
-    main {
-        padding: 20px;
+        main {
+            min-height: calc(100vh - #{$headerHeight});
+        }
     }
 </style>

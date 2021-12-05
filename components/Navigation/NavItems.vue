@@ -1,8 +1,15 @@
 <template>
-    <nav id="main_nav" :class="direction === 'row' ? 'flex_row' : 'flex_col'">
-        <ul class="nav_items" @click="$emit('toggleAside')">
+    <nav 
+        id="main_nav" 
+        class="h-full" 
+        :class="direction === 'row' ? 'flex_row' : 'flex_col'"
+    >
+        <ul 
+            class="nav_items h-full flex items-center flex-nowrap" 
+            @click="$emit('toggleAside')"
+        >
             <li class="nav_item">
-                <nuxt-link to="/posts">Blog</nuxt-link>
+                <nuxt-link to="/">Blog</nuxt-link>
             </li>
             <li class="nav_item">
                 <nuxt-link to="/about">About</nuxt-link>
@@ -26,35 +33,26 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     #main_nav {
-        height: 100%;
-    }
+        &.flex_row {
+            .nav_items {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+        }
 
-    #main_nav.flex_row > .nav_items {
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-
-    #main_nav.flex_col > .nav_items {
-        flex-direction: column;
-        justify-content: flex-start;
+        &.flex_col {
+            .nav_items {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+        }
     }
 
     .nav_items {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        height: 100%;
-    }
-
-    .nav_items > .nav_item {
-        padding: 10px;
-        @apply hover:bg-red-700;
-    }
-
-    .nuxt-link-exact-active {
-        font-weight: bold;
-        text-decoration: underline;
+        .nav_item {
+            padding: 10px;
+        }
     }
 </style>

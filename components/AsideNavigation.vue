@@ -1,5 +1,5 @@
 <template>
-    <aside :class="showAside ? 'open' : ''">
+    <aside class="h-screen overflow-hidden" :class="showAside ? 'open' : ''">
         <Navigation-NavItems direction="column" @toggleAside="$emit('toggleAside')" />
     </aside>
 </template>
@@ -16,23 +16,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '@/assets/style/partials/_vars.scss';
+
     aside {
         position: fixed;
         top: 0;
         left: 0;
         width: 0;
         padding: 20px 0;
-        height: 100vh;
-        overflow: hidden;
-        background-color: #ccc;
+        background-color: $secondary_bg;
         z-index: 99;
-        transition: all .2s linear;
-        color: #000
-    }
+        transition: $transition;
 
-    aside.open {
-        width: max-content;
-        padding: 20px 50px;
+        &.open {
+            width: 50%;
+            padding: 20px 50px;
+        }
     }
 </style>
