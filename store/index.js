@@ -1,5 +1,6 @@
 export const actions = {
-    async nuxtServerInit({ commit }, { app }) {
+    async nuxtServerInit({ commit, dispatch }, { app, req }) {
+        console.log('ciao');
         return await app.$axios.$get('/posts.json')
                     .then(data => {
                         const postsFetched = data,
@@ -9,6 +10,12 @@ export const actions = {
                             posts.push({ ...postsFetched[key], id: key });
                         }
                         
+                        let token = null;
+                        if(req.headers.cookie) {
+                            token = req.headers.cookie.split(';').find(el => el.includes('token=')).split('=')[1];
+                        }
+
+                        commit('auth/setToken', token);
                         commit('posts/setPosts', posts);
                     })
     }

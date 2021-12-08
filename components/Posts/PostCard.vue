@@ -1,5 +1,5 @@
 <template>
-    <div v-if="post.slug" class="postCard__wrapper p-5 w-full lg:w-4/12 xl:w-3/12">
+    <div v-if="post.slug" class="postCard__wrapper flex flex-col justify-between flex-nowrap p-5 w-full lg:w-4/12 xl:w-3/12">
         <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.slug, post }, query: { id: post.id } }" class="post_link__wrapper">
             <div class="post__wrapper">
                 <figure class="post_image">
@@ -23,14 +23,21 @@
             </div>
         </nuxt-link>
 
-        <div v-if="this.$route.path.includes('admin')">
-            <nuxt-link :to="{ name: 'admin-edit-slug', params: { slug: post.slug, post }, query: { id: post.id } }" class="btn">Edit</nuxt-link>
-            <button
+        <div v-if="this.$route.path.includes('admin')" class="buttons__wrapper flex flex-row justify-center flex-nowrap">
+            <nuxt-link 
+                :to="{ name: 'admin-edit-slug', params: { slug: post.slug, post }, query: { id: post.id } }" 
                 class="btn"
+            >
+                Edit
+            </nuxt-link>
+
+            <UI-CustomButton  
+                type="button" 
+                class="btn-delete"
                 @click="deletePost(post).then(res => $router.push('/'))"
             >
                 Delete
-            </button>
+            </UI-CustomButton>
         </div>
     </div>
 </template>
@@ -68,39 +75,4 @@
             color: $secondary_color;
         }
     }
-    // .post_link__wrapper {
-    //     margin: 10px;
-    // }
-
-    // .post__wrapper {
-    //     width: 500px;
-    //     height: 300px;
-    //     background-color: transparent;
-    //     border: 1px solid #B88B4A;
-    //     transition: all .3s linear;
-    // }
-
-    // .post__wrapper:hover {
-    //     background-color: rgba(0, 0, 0, 0.3);
-    // }
-
-    // .post_image {
-    //     width: 100%;
-    //     height: 50%;
-    // }
-
-    // .post_image > img {
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: cover;
-    //     object-position: center;
-    // }
-
-    // .post_meta {
-    //     padding: 10px;
-    // }
-
-    // .preview {
-    //     padding: 10px 0;
-    // }
 </style>

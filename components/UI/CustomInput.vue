@@ -3,13 +3,13 @@
         <slot />
         <input 
             v-if="inputType === 'text'" 
-            type="text"
+            v-bind="$attrs"
             :value="value"
             @input="$emit('input', $event.target.value)"
         >
 
         <textarea 
-            v-if="inputType === 'textarea'"
+            v-else
             :value="value"
             @input="$emit('input', $event.target.value)"
         ></textarea>
@@ -29,6 +29,7 @@
                 required: false,
                 default: ''
             }
-        }
+        },
+        inheritAttrs: false
     }
 </script>

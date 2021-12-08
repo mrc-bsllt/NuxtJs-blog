@@ -14,7 +14,15 @@
             <li class="nav_item">
                 <nuxt-link to="/about">About</nuxt-link>
             </li>
-            <li class="nav_item">
+            <template v-if="!getToken">
+                <li class="nav_item">
+                    <nuxt-link to="/auth/login">Login</nuxt-link>
+                </li>
+                <li class="nav_item">
+                    <nuxt-link to="/auth/register">Register</nuxt-link>
+                </li>
+            </template>
+            <li v-else class="nav_item">
                 <nuxt-link to="/admin">Admin</nuxt-link>
             </li>
         </ul>
@@ -22,15 +30,22 @@
 </template>
 
 <script>
-export default {
-    props: {
-        direction: {
-            type: String,
-            required: false,
-            default: 'row'
+    import { mapGetters } from 'vuex';
+
+    export default {
+        props: {
+            direction: {
+                type: String,
+                required: false,
+                default: 'row'
+            }
+        },
+        computed: {
+            ...mapGetters(
+                'auth', [ 'getToken' ]
+            )
         }
     }
-}
 </script>
 
 <style lang="scss" scoped>

@@ -2,18 +2,14 @@
     <button
         v-bind="$attrs"
         v-on="$listeners"
+        class="btn"
     >
-        <slot>{{ label }}</slot>
+        <slot />
     </button>
 </template>
 
 <script>
-export default {
-    props: {
-        label: {
-            type: String,
-            required: true
-        }
+    export default {
+
     }
-}
 </script>

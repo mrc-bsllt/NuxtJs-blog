@@ -12,6 +12,26 @@ h1 {
     font-size: 30px;
 }
 
+.btn {
+    border: 1px solid $border_color;
+    color: $secondary_color;
+    @apply inline-block h-full mx-3 py-1 px-5 uppercase;
+    background-color: transparent;
+    transition: $transition;
+
+    &:hover {
+        background-color: $primary_color;
+    }
+
+    &-delete {
+        background-color: $error_color;
+    }
+
+    &-submit {
+        background-color: $success_color;
+    }
+}
+
 .test-enter-active, .test-leave-active {
     transition: opacity .2s;
 }

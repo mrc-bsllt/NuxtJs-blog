@@ -52,7 +52,9 @@ export default {
   },
 
   env: {
-    base_url: process.env.BASE_URL || 'https://nuxt-post-38ea9-default-rtdb.europe-west1.firebasedatabase.app'
+    API_KEY: 'AIzaSyAzkMFiMGBqRVOrRqHOCZXqYXYkoId7Qwg',
+    LOGIN_API: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',
+    REGISTER_API: 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='
   },
 
   transition: {

@@ -1,12 +1,12 @@
 <template>
     <form @submit.prevent="savePost">
-        <UI-CustomInput v-model="currentPost.author">Author</UI-CustomInput>
-        <UI-CustomInput v-model="currentPost.title">Title</UI-CustomInput>
-        <UI-CustomInput v-model="currentPost.image">Image</UI-CustomInput>
+        <UI-CustomInput type="text" v-model="currentPost.author">Author</UI-CustomInput>
+        <UI-CustomInput type="text" v-model="currentPost.title">Title</UI-CustomInput>
+        <UI-CustomInput type="text" v-model="currentPost.image">Image</UI-CustomInput>
         <UI-CustomInput inputType="textarea" v-model="currentPost.content">Content</UI-CustomInput>
 
-        <UI-CustomButton  type="submit" :label="mainBtnLabel" />
-        <UI-CustomButton  type="button" label="Back" @click="$router.push('/admin')" />
+        <UI-CustomButton  type="submit" class="btn-submit">{{ mainBtnLabel }}</UI-CustomButton>
+        <UI-CustomButton  type="button" @click="$router.back()">Back</UI-CustomButton>
     </form>
 </template>
 

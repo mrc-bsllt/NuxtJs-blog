@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header>
-            <nuxt-link to="/admin/createPost" class="btn">Create Post</nuxt-link>
+        <header class="flex flex-row justify-center items-center py-5">
+            <UI-CustomButton type="button" @click="$router.push('/admin/createPost')">Create Post</UI-CustomButton>
         </header>
 
         <Posts-PostList :posts="getLoadedPosts" />
@@ -19,11 +19,3 @@
         }
     }
 </script>
-
-<style scoped>
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
