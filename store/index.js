@@ -1,6 +1,5 @@
 export const actions = {
     async nuxtServerInit({ commit, dispatch }, { app, req }) {
-        console.log('ciao');
         return await app.$axios.$get('/posts.json')
                     .then(data => {
                         const postsFetched = data,

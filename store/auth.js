@@ -17,15 +17,19 @@ export const actions = {
         this.$axios.$post(process.env.REGISTER_API + process.env.API_KEY, userData)
             .then(data => {
                 dispatch('setAuthCookies', { ...userData, token: data.idToken });
-                this.$router.push('/')
+                this.$router.push('/admin');
             });
     },
     loginUser({ commit, dispatch }, userData) {
         this.$axios.$post(process.env.LOGIN_API + process.env.API_KEY, userData)
         .then(data => {
-            console.log('FIRED loginUser', data);
-            console.log(userData);
-            
+            const user = {
+                token: data.idToken,
+                name: userData.email
+            }
+
+            dispatch('setAuthCookies', user);
+            this.$router.push('/admin');   
         })
     },
     setAuthCookies({ commit }, data) {

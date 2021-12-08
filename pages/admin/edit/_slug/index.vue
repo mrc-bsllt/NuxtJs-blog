@@ -7,6 +7,7 @@
 
     export default {
         layout: 'main',
+        middleware: 'isAuth',
         asyncData({ route }) {
             return {
                 filterString: route.params.slug + route.query.id

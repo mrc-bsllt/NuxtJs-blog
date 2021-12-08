@@ -7,6 +7,7 @@
 <script>
     export default {
         layout: 'main',
+        middleware: 'isAuth',
         methods: {
             savePost(data) {
                 this.$store.dispatch('posts/addPost', data).then(() => this.$router.push('/'))

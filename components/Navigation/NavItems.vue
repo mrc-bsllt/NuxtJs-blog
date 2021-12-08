@@ -22,14 +22,20 @@
                     <nuxt-link to="/auth/register">Register</nuxt-link>
                 </li>
             </template>
-            <li v-else class="nav_item">
-                <nuxt-link to="/admin">Admin</nuxt-link>
-            </li>
+            <template v-else>
+                <li class="nav_item">
+                    <nuxt-link to="/admin">Admin</nuxt-link>
+                </li>
+                <li>
+                    <span class="cursor-pointer" @click="logOut">Log Out</span>
+                </li>
+            </template>
         </ul>
     </nav>
 </template>
 
 <script>
+    import Cookies from 'js-cookie';
     import { mapGetters } from 'vuex';
 
     export default {
@@ -38,6 +44,14 @@
                 type: String,
                 required: false,
                 default: 'row'
+            }
+        },
+        methods: {
+            logOut() {
+                this.$store.commit('auth/setToken', null);
+                Cookies.remove('token');
+                Cookies.remove('userName');
+                this.$router.push('/');
             }
         },
         computed: {
