@@ -3,7 +3,7 @@
         <Header @toggleAside="showAside = !showAside" />
         <AsideNavigation :showAside="showAside" @toggleAside="showAside = !showAside" />
 
-        <main>
+        <main class="relative">
             <Nuxt />
         </main>
         
@@ -30,7 +30,7 @@ export default {
         color: $secondary_color;
 
         main {
-            min-height: calc(100vh - #{$headerHeight});
+            min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
         }
     }
 </style>

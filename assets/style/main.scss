@@ -32,6 +32,35 @@ h1 {
     }
 }
 
+.form__wrapper {
+    @apply w-full md:w-10/12 xl:w-7/12 flex flex-col justify-start items-center flex-nowrap p-10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+
+    form {
+        @apply w-full;
+
+        label {
+           color: $secondary_color;
+        }
+   
+        .input_group {
+            @apply w-full;
+        }
+   
+        input {
+            width: 100%;
+        }
+
+        .buttons__wrapper {
+            @apply flex flex-row justify-center flex-nowrap mt-5;
+        }
+    }
+}
+
 .test-enter-active, .test-leave-active {
     transition: opacity .2s;
 }

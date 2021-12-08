@@ -1,13 +1,17 @@
 <template>
-    <form @submit.prevent="savePost">
-        <UI-CustomInput type="text" v-model="currentPost.author">Author</UI-CustomInput>
-        <UI-CustomInput type="text" v-model="currentPost.title">Title</UI-CustomInput>
-        <UI-CustomInput type="text" v-model="currentPost.image">Image</UI-CustomInput>
-        <UI-CustomInput inputType="textarea" v-model="currentPost.content">Content</UI-CustomInput>
+    <div class="form__wrapper">
+        <form @submit.prevent="savePost">
+            <UI-CustomInput type="text" v-model="currentPost.author">Author</UI-CustomInput>
+            <UI-CustomInput type="text" v-model="currentPost.title">Title</UI-CustomInput>
+            <UI-CustomInput type="text" v-model="currentPost.image">Image</UI-CustomInput>
+            <UI-CustomInput inputType="textarea" v-model="currentPost.content">Content</UI-CustomInput>
 
-        <UI-CustomButton  type="submit" class="btn-submit">{{ mainBtnLabel }}</UI-CustomButton>
-        <UI-CustomButton  type="button" @click="$router.back()">Back</UI-CustomButton>
-    </form>
+            <div class="buttons__wrapper">
+                <UI-CustomButton  type="submit" class="btn-submit">{{ mainBtnLabel }}</UI-CustomButton>
+                <UI-CustomButton  type="button" @click="$router.back()">Back</UI-CustomButton>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
