@@ -6,6 +6,8 @@
             <UI-CustomInput type="text" v-model="currentPost.image">Image</UI-CustomInput>
             <UI-CustomInput inputType="textarea" v-model="currentPost.content">Content</UI-CustomInput>
 
+            <Tags-Wrapper :tags="currentPost.tags" @getTags="saveTags" />
+
             <div class="buttons__wrapper">
                 <UI-CustomButton  type="submit" class="btn-submit">{{ mainBtnLabel }}</UI-CustomButton>
                 <UI-CustomButton  type="button" @click="$router.back()">Back</UI-CustomButton>
@@ -32,7 +34,8 @@
                     author: '',
                     title: '',
                     content: '',
-                    image: ''
+                    image: '',
+                    tags: []
                 }
             }
         },
@@ -47,6 +50,9 @@
             },
             titleToSlug(str) {
                 return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+            },
+            saveTags(tags) {
+                this.currentPost.tags = [ ...tags ];
             }
         }
     }

@@ -32,12 +32,13 @@ h1 {
     }
 }
 
+.form__section {
+    @apply py-10;
+}
+
 .form__wrapper {
     @apply w-full md:w-10/12 xl:w-7/12 flex flex-col justify-start items-center flex-nowrap p-10;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
 
     form {

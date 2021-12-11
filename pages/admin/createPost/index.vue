@@ -1,5 +1,5 @@
 <template>
-    <div class="create-form">
+    <div class="form__section">
         <UI-AdminForm @onSubmit="savePost" mainBtnLabel="Save" />
     </div>
 </template>

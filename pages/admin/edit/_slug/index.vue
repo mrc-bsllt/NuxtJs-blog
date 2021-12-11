@@ -1,5 +1,7 @@
 <template>
-    <UI-AdminForm mainBtnLabel="Edit" :post="getPostByUniqueString(filterString)" @onSubmit="sendUpdatePost" />
+     <div class="form__section">
+        <UI-AdminForm mainBtnLabel="Edit" :post="getPostByUniqueString(filterString)" @onSubmit="sendUpdatePost" />
+     </div>
 </template>
 
 <script>

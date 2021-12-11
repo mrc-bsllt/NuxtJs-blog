@@ -1,5 +1,7 @@
 <template>
-    <AuthForm @onSubmit="sendData" />
+    <div class="form__section">
+        <AuthForm @onSubmit="sendData" />
+    </div>
 </template>
 
 <script>

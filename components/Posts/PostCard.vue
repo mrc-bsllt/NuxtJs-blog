@@ -4,13 +4,15 @@
             <div class="post__wrapper">
                 <figure class="post_image">
                     <img 
-                        :src="post.image != '' ? post.image : 'https://www.frosinonecalcio.com/wp-content/uploads/2021/09/default-placeholder.png'" 
+                        :src="post.image != '' ? post.image : require('@/assets/images/placeholder.png')" 
                         class="w-full h-full object-cover object-center"
                         :alt="post.slug"
                     >
                 </figure>
              
                 <div class="post_meta py-5">
+                    <small class="mb-1">{{ post.tags.join(', ') }}</small>
+
                     <h3>{{ post.title }} ({{ post.author }})</h3>
 
                     <section class="preview py-3">
@@ -73,6 +75,10 @@
     .post_meta {
         h3, p {
             color: $secondary_color;
+        }
+
+        small {
+            color: $border_color;
         }
     }
 </style>
