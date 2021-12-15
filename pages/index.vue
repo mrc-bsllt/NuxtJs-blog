@@ -3,6 +3,7 @@
         <PageTitle message="Featured Posts!"/>
 
         <main>
+            <h1>Prova</h1>
             <Posts-PostList :posts="getLoadedPosts" />
         </main>
     </div>
